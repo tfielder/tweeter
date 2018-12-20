@@ -7,12 +7,12 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get tweets_url
-    assert_response :success
+    assert_response :failures
   end
 
   test "should get new" do
     get new_tweet_url
-    assert_response :success
+    assert_response :failures
   end
 
   test "should create tweet" do
@@ -20,7 +20,7 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
       post tweets_url, params: { tweet: { message: @tweet.message, published: @tweet.published } }
     end
 
-    assert_redirected_to tweet_url(Tweet.last)
+    assert_redirected_to tweets_url(Tweet.last)
   end
 
   test "should show tweet" do
